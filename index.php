@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta id="theme-color" name="theme-color" content="#f7faf6">
+  <meta name="description" content="Explore Zin Lamma's work across digital marketing, content, business operations, project coordination, and customer experience.">
+  <title>Zin Lamma | Creative &amp; Operations Professional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: "rgb(var(--theme-forest-rgb) / <alpha-value>)",
+            leaf: "rgb(var(--theme-leaf-rgb) / <alpha-value>)",
+            sage: "rgb(var(--theme-sage-rgb) / <alpha-value>)",
+            paper: "rgb(var(--theme-paper-rgb) / <alpha-value>)"
+          },
+          fontFamily: {
+            sans: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+            display: ["Georgia", "ui-serif", "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --theme-forest: #163d2b;
+      --theme-leaf: #347a50;
+      --theme-sage: #eaf1e9;
+      --theme-paper: #f7faf6;
+      --theme-forest-rgb: 22 61 43;
+      --theme-leaf-rgb: 52 122 80;
+      --theme-sage-rgb: 234 241 233;
+      --theme-paper-rgb: 247 250 246;
+    }
+    html.dark {
+      color-scheme: dark;
+      --theme-leaf: #9bcaa3;
+      --theme-sage: #20362a;
+      --theme-paper: #111a14;
+      --theme-leaf-rgb: 155 202 163;
+      --theme-sage-rgb: 32 54 42;
+      --theme-paper-rgb: 17 26 20;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: "DM Sans", sans-serif; }
+    .display-font { font-family: "Playfair Display", Georgia, serif; }
+    html.dark body { background-color: var(--theme-paper); color: #e2e8e3; }
+    html.dark [class~="bg-paper"] { background-color: var(--theme-paper); }
+    html.dark [class~="bg-white"],
+    html.dark [class~="bg-white/70"],
+    html.dark [class~="bg-white/80"],
+    html.dark [class~="bg-white/90"] { background-color: #1a261e; }
+    html.dark [class~="bg-sage/60"],
+    html.dark [class~="bg-sage/70"] { background-color: #17241b; }
+    html.dark [class~="text-forest"] { color: #e2eee2; }
+    html.dark [class~="text-leaf"] { color: var(--theme-leaf); }
+    html.dark [class~="text-slate-700"] { color: #e2e8e3; }
+    html.dark [class~="text-slate-600"] { color: #c1ccc3; }
+    html.dark [class~="text-slate-500"] { color: #a4b2a7; }
+    html.dark [class~="text-slate-400"] { color: #91a095; }
+    html.dark [class*="border-forest/"] { border-color: rgb(226 238 226 / 0.14); }
+    .hero-grid {
+      background-image: radial-gradient(#234d3520 0.8px, transparent 0.8px);
+      background-size: 15px 15px;
+    }
+    html.dark .hero-grid { background-image: radial-gradient(#b8d1b320 0.8px, transparent 0.8px); }
+    .photo-wash { background: linear-gradient(180deg, transparent 55%, #163d2b66 100%); }
+    .scroll-progress {
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 80ms linear;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes riseUp {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(52, 122, 80, 0.26); }
+      50% { box-shadow: 0 0 0 12px rgba(52, 122, 80, 0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 600ms ease, transform 600ms ease, filter 600ms ease;
+      transition-delay: var(--delay, 0ms);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: none;
+    }
+    .main-nav-link {
+      position: relative;
+      padding-block: 0.25rem;
+    }
+    .main-nav-link::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      border-radius: 9999px;
+      background: var(--theme-leaf);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 220ms ease;
+    }
+    .main-nav-link:hover::after,
+    .main-nav-link:focus-visible::after,
+    .main-nav-link[aria-current="location"]::after {
+      transform: scaleX(1);
+    }
+    .main-nav-link[aria-current="location"] { color: var(--theme-leaf); }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-rise { animation: riseUp 850ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+    .project-filter[aria-pressed="true"] {
+      border-color: var(--theme-forest);
+      background: var(--theme-forest);
+      color: #fff;
+    }
+    html.dark .project-filter[aria-pressed="true"] { color: #111a14; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    ::selection { background: #d7e9d8; color: #163d2b; }
+  </style>
+  <script>
+    document.documentElement.classList.add("js");
+    const savedTheme = localStorage.getItem("zinlamma-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (savedTheme === "dark" || (savedTheme !== "light" && prefersDark)) {
+      document.documentElement.classList.add("dark");
+    }
+    document.getElementById("theme-color").content = document.documentElement.classList.contains("dark") ? "#111a14" : "#f7faf6";
+  </script>
+</head>
+<body class="bg-paper text-slate-700 antialiased">
+  <div id="scroll-progress" class="scroll-progress fixed left-0 top-0 z-[60] h-1 w-full bg-leaf" role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+  <header class="sticky top-0 z-50 border-b border-forest/10 bg-paper/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-3 px-5 py-4 sm:px-8" aria-label="Main navigation">
+      <a href="#home" class="order-1 flex items-center gap-3" aria-label="Zin Lamma home">
+        <span class="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-sm font-bold tracking-wide text-white">ZL</span>
+        <span class="font-semibold text-forest">Zin Lamma</span>
+      </a>
+      <div class="order-2 flex w-full flex-wrap items-center justify-center gap-x-5 gap-y-2 border-t border-forest/10 pt-3 lg:w-auto lg:flex-1 lg:justify-end lg:gap-6 lg:border-0 lg:pt-0">
+        <a class="main-nav-link text-sm text-slate-600 transition hover:text-leaf" href="#services">Services</a>
+        <a class="main-nav-link text-sm text-slate-600 transition hover:text-leaf" href="#tools">Tools</a>
+        <a class="main-nav-link text-sm text-slate-600 transition hover:text-leaf" href="#projects">Projects</a>
+        <a class="main-nav-link text-sm text-slate-600 transition hover:text-leaf" href="#about">About</a>
+        <a class="main-nav-link text-sm text-slate-600 transition hover:text-leaf" href="#resume">Resume</a>
+      </div>
+      <div class="order-3 ml-auto flex shrink-0 items-center gap-3">
+        <a href="#contact" class="rounded-full bg-forest px-3 py-2 text-xs font-semibold text-white transition hover:bg-leaf sm:px-5 sm:py-2.5 sm:text-sm">Let’s work together <span aria-hidden="true">↗</span></a>
+        <button id="theme-toggle" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-forest/15 text-forest transition hover:bg-sage md:w-auto md:gap-2 md:px-3" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <svg id="theme-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.5 8.5 0 1 0 12 12Z"/></svg>
+          <span id="theme-label" class="hidden text-xs font-semibold md:inline">Dark mode</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="relative overflow-hidden">
+      <div class="hero-grid absolute inset-0 opacity-50" aria-hidden="true"></div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.05fr_.95fr] lg:gap-16 lg:py-24">
+        <div class="relative z-10">
+          <div class="animate-pulse-glow mb-7 inline-flex items-center gap-2 rounded-full border border-leaf/15 bg-white/80 px-3.5 py-2 text-sm text-forest shadow-sm">
+            <span class="h-2 w-2 rounded-full bg-leaf"></span>
+            Creative, marketing &amp; operations
+          </div>
+          <h1 class="animate-rise display-font max-w-2xl text-5xl leading-[1.08] tracking-tight text-forest sm:text-6xl lg:text-[4.35rem]">
+            More space to do the work <span class="italic text-leaf">you love.</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+            Hi, I’m Zin. I bring together digital marketing, content, business operations, and customer experience to help ideas and teams move forward.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-forest px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-forest/15 transition hover:-translate-y-0.5 hover:bg-leaf">
+              Tell me what you need <span aria-hidden="true">↗</span>
+            </a>
+            <a href="#services" class="inline-flex items-center justify-center rounded-full border border-forest/20 bg-white/70 px-7 py-3.5 text-sm font-semibold text-forest transition hover:border-leaf hover:bg-white">Explore my services</a>
+          </div>
+          <div class="mt-10 flex items-center gap-3 text-sm text-slate-500">
+            <div class="flex -space-x-2" aria-hidden="true">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-paper bg-sage text-xs text-forest">✦</span>
+              <span class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-paper bg-[#dfe8d8] text-xs text-leaf">✓</span>
+              <span class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-paper bg-[#edf0e7] text-xs text-forest">↗</span>
+            </div>
+            <span>Practical thinking, creative work, and thoughtful collaboration.</span>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-[500px]">
+          <div class="absolute -right-5 -top-5 h-28 w-28 rounded-full border border-leaf/20 sm:-right-8 sm:-top-8 sm:h-40 sm:w-40" aria-hidden="true"></div>
+          <div class="absolute -bottom-5 -left-5 h-28 w-28 rounded-full bg-[#dce9d9] sm:-bottom-8 sm:-left-8 sm:h-40 sm:w-40" aria-hidden="true"></div>
+          <div class="animate-float relative aspect-[4/4.5] overflow-hidden rounded-[2rem] bg-sage shadow-2xl shadow-forest/15">
+            <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="A professional working at a bright, welcoming desk" fetchpriority="high">
+            <div class="photo-wash absolute inset-0"></div>
+            <div class="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/40 bg-white/90 p-4 shadow-lg backdrop-blur sm:bottom-8 sm:left-8 sm:right-8 sm:p-5">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.16em] text-leaf">A little more breathing room</p>
+                  <p class="mt-1 text-lg font-semibold text-forest">The details are in good hands.</p>
+                </div>
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage text-xl text-leaf" aria-hidden="true">✦</span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -left-4 top-12 rounded-2xl border border-forest/5 bg-white px-4 py-3 shadow-lg sm:-left-12">
+            <p class="text-xs text-slate-500">Your to-do list</p>
+            <p class="mt-1 text-sm font-semibold text-forest">Handled with care <span class="text-leaf">✓</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-forest/10 bg-white/70" aria-label="Key benefits">
+      <div class="mx-auto grid max-w-7xl gap-5 px-5 py-6 sm:grid-cols-3 sm:px-8">
+        <div class="flex items-center justify-center gap-3 text-sm font-medium text-forest sm:justify-start"><span class="text-lg text-leaf">✳</span> Creative and analytical thinking</div>
+        <div class="flex items-center justify-center gap-3 text-sm font-medium text-forest"><span class="text-lg text-leaf">✳</span> Clear, thoughtful communication</div>
+        <div class="flex items-center justify-center gap-3 text-sm font-medium text-forest sm:justify-end"><span class="text-lg text-leaf">✳</span> Adaptable across projects and teams</div>
+      </div>
+    </section>
+
+    <section id="services" class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-leaf">Areas of work</p>
+        <h2 class="display-font mt-4 text-4xl leading-tight text-forest sm:text-5xl">A versatile skill set for real-world work.</h2>
+        <p class="mt-5 leading-7 text-slate-600">I enjoy work that blends creativity, organization, and people skills — from building a stronger online presence to keeping projects and operations on track.</p>
+      </div>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="reveal group rounded-3xl border border-forest/10 bg-white p-6 transition hover:-translate-y-1 hover:border-leaf/30 hover:shadow-xl hover:shadow-forest/5">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sage text-leaf">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path stroke-linecap="round" d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17M8 13h3M8 16h6"/></svg>
+          </span>
+          <h3 class="mt-5 text-lg font-semibold text-forest">Business operations</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Organizing workflows, maintaining records, coordinating schedules, and improving the day-to-day details behind a business.</p>
+        </article>
+        <article class="reveal group rounded-3xl border border-forest/10 bg-white p-6 transition hover:-translate-y-1 hover:border-leaf/30 hover:shadow-xl hover:shadow-forest/5">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sage text-leaf">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path stroke-linecap="round" d="M8 7h8M8 11h6"/></svg>
+          </span>
+          <h3 class="mt-5 text-lg font-semibold text-forest">Digital marketing &amp; content</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Social media planning, campaign support, content development, and maintaining a consistent online presence.</p>
+        </article>
+        <article class="reveal group rounded-3xl border border-forest/10 bg-white p-6 transition hover:-translate-y-1 hover:border-leaf/30 hover:shadow-xl hover:shadow-forest/5">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sage text-leaf">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20M8 8h8M8 12h5"/></svg>
+          </span>
+          <h3 class="mt-5 text-lg font-semibold text-forest">Project coordination &amp; research</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Gathering useful information, organizing project details, coordinating next steps, and turning ideas into action.</p>
+        </article>
+        <article class="reveal group rounded-3xl border border-forest/10 bg-white p-6 transition hover:-translate-y-1 hover:border-leaf/30 hover:shadow-xl hover:shadow-forest/5">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sage text-leaf">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M8 10h8M8 14h5"/></svg>
+          </span>
+          <h3 class="mt-5 text-lg font-semibold text-forest">Customer &amp; client experience</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Thoughtful communication, responsive follow-up, and service that helps customers feel heard and supported.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tools" class="bg-white/70">
+      <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-leaf">My toolkit</p>
+          <h2 class="display-font mt-4 text-4xl leading-tight text-forest sm:text-5xl">Tools I use to keep things moving.</h2>
+          <p class="mt-5 leading-7 text-slate-600">From everyday communication to planning and creative work, I use tools that make collaboration clear and organized.</p>
+        </div>
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="reveal rounded-2xl border border-forest/10 bg-paper p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm" aria-hidden="true">
+              <svg class="h-7 w-7" viewBox="0 0 48 48" fill="none"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15Z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.9l-6.6-5.1c-1.8 1.2-4.1 2-6.9 2-5.3 0-9.8-3.6-11.4-8.4H5.8v5.3A20 20 0 0 0 24 44Z"/><path fill="#FBBC05" d="M12.6 27.6a12 12 0 0 1 0-7.2v-5.3H5.8a20 20 0 0 0 0 17.8l6.8-5.3Z"/><path fill="#EA4335" d="M24 12c3 0 5.7 1 7.8 3.1l5.8-5.8C34.1 6 29.5 4 24 4A20 20 0 0 0 5.8 15.1l6.8 5.3C14.2 15.6 18.7 12 24 12Z"/></svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-forest">Google Workspace</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">Email, documents, spreadsheets, and shared calendars.</p>
+          </article>
+          <article class="reveal rounded-2xl border border-forest/10 bg-paper p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm" aria-hidden="true">
+              <svg class="h-6 w-6" viewBox="0 0 24 24"><path fill="#F25022" d="M2 2h9.5v9.5H2z"/><path fill="#7FBA00" d="M12.5 2H22v9.5h-9.5z"/><path fill="#00A4EF" d="M2 12.5h9.5V22H2z"/><path fill="#FFB900" d="M12.5 12.5H22V22h-9.5z"/></svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-forest">Microsoft Office</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">Professional documents, spreadsheets, and presentations.</p>
+          </article>
+          <article class="reveal rounded-2xl border border-forest/10 bg-paper p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#00c4cc] text-white shadow-sm" aria-hidden="true">
+              <svg class="h-7 w-7" viewBox="0 0 32 32" fill="none"><path d="M16 5.5c-6 0-10.5 4.1-10.5 10.1S10 26 16 26c4.4 0 7.9-2.4 9.5-6.1" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M19.2 10.4c3.9.9 6.2 3.6 6.2 7.2 0 2.2-.8 4.2-2.2 5.7" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-forest">Canva</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">Branded graphics and polished social media content.</p>
+          </article>
+          <article class="reveal rounded-2xl border border-forest/10 bg-paper p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm" aria-hidden="true">
+              <svg class="h-7 w-7" viewBox="0 0 48 48"><rect x="3" y="5" width="42" height="38" rx="8" fill="#2684FF"/><rect x="13" y="14" width="8" height="20" rx="2" fill="white"/><rect x="27" y="14" width="8" height="14" rx="2" fill="white"/></svg>
+            </span>
+            <span class="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500" aria-hidden="true">
+              <svg class="h-4 w-4" viewBox="0 0 24 24"><rect x="1" y="1" width="22" height="22" rx="4" fill="#111"/><path d="M6 5h4l8 10V5h2v14h-3L8 8v11H6z" fill="#fff"/></svg>
+              + Notion
+            </span>
+            <h3 class="mt-4 font-semibold text-forest">Trello &amp; Notion</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">Task tracking, project notes, and organized workflows.</p>
+          </article>
+          <article class="reveal rounded-2xl border border-forest/10 bg-paper p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm" aria-hidden="true">
+              <svg class="h-8 w-8" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="#0866FF"/><path fill="#fff" d="M18 27V17h3.4l.5-4H18v-2.5c0-1.2.4-2 2-2h2V5c-.4-.1-1.8-.2-3.3-.2-3.2 0-5.4 1.9-5.4 5.5V13H10v4h3.3v10H18Z"/></svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-forest">Meta Business Suite</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">Social media scheduling and page management.</p>
+          </article>
+          <article class="reveal rounded-2xl border border-forest/10 bg-paper p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm" aria-hidden="true">
+              <svg class="h-7 w-7" viewBox="0 0 32 32">
+                <path fill="#36C5F0" d="M12 2a4 4 0 1 0 0 8h4V6a4 4 0 0 0-4-4Zm0 10H4a4 4 0 1 0 0 8h8a4 4 0 0 0 0-8Z"/>
+                <path fill="#2EB67D" d="M30 12a4 4 0 1 0-8 0v4h4a4 4 0 0 0 4-4Zm-10 0V4a4 4 0 1 0-8 0v8a4 4 0 1 0 8 0Z"/>
+                <path fill="#ECB22E" d="M20 30a4 4 0 1 0 0-8h-4v4a4 4 0 0 0 4 4Zm0-10h8a4 4 0 1 0 0-8h-8a4 4 0 0 0 0 8Z"/>
+                <path fill="#E01E5A" d="M2 20a4 4 0 1 0 8 0v-4H6a4 4 0 0 0-4 4Zm10 0v8a4 4 0 1 0 8 0v-8a4 4 0 1 0-8 0Z"/>
+              </svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-forest">Slack</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">Quick, clear communication with clients and teams.</p>
+          </article>
+          <article class="reveal rounded-2xl border border-forest/10 bg-paper p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm" aria-hidden="true">
+              <svg class="h-8 w-8" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#2D8CFF"/><rect x="8" y="13" width="16" height="14" rx="4" fill="white"/><path d="m25 17 7-4v14l-7-4z" fill="white"/></svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-forest">Zoom</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">Face-to-face check-ins and collaborative meetings.</p>
+          </article>
+          <article class="reveal rounded-2xl border border-forest/10 bg-paper p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-sage text-leaf" aria-hidden="true">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16.5 8.5 12l3.2 3.2L20 7m-6 0h6v6"/></svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-forest">Your preferred tools</h3>
+            <p class="mt-1 text-sm leading-6 text-slate-600">Happy to learn the platforms that already work for you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="bg-sage/60">
+      <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-leaf">Selected experience</p>
+          <h2 class="display-font mt-4 text-4xl leading-tight text-forest sm:text-5xl">Accomplished projects.</h2>
+          <p class="mt-5 leading-7 text-slate-600">A few areas represented in my work. Explore digital marketing and property operations, and see how different skills come together across projects.</p>
+        </div>
+        <div class="mt-8 flex flex-wrap justify-center gap-2" role="group" aria-label="Filter projects">
+          <button class="project-filter rounded-full border border-forest/15 bg-white px-4 py-2 text-sm font-semibold text-forest transition hover:border-leaf" type="button" data-filter="all" aria-pressed="true">All work</button>
+          <button class="project-filter rounded-full border border-forest/15 bg-white px-4 py-2 text-sm font-semibold text-forest transition hover:border-leaf" type="button" data-filter="marketing" aria-pressed="false">Digital marketing</button>
+          <button class="project-filter rounded-full border border-forest/15 bg-white px-4 py-2 text-sm font-semibold text-forest transition hover:border-leaf" type="button" data-filter="operations" aria-pressed="false">Operations</button>
+        </div>
+        <div id="project-grid" class="mt-8 grid gap-6 lg:grid-cols-2" aria-live="polite">
+          <article class="reveal overflow-hidden rounded-3xl border border-forest/10 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="marketing">
+            <div class="flex min-h-48 items-end bg-gradient-to-br from-[#244f35] via-[#3d7950] to-[#a5c499] p-7 sm:p-9">
+              <div>
+                <span class="rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-white">Digital marketing</span>
+                <h3 class="display-font mt-4 text-3xl text-white sm:text-4xl">Facebook Ads</h3>
+              </div>
+            </div>
+            <div class="p-6 sm:p-8">
+              <p class="text-sm leading-7 text-slate-600">Add a short overview of a Facebook Ads project here — such as the campaign goal, your role, the audience reached, and the outcome.</p>
+              <div class="mt-6 grid gap-3 border-t border-forest/10 pt-5 sm:grid-cols-2">
+                <div><p class="text-xs font-semibold uppercase tracking-wider text-leaf">My contribution</p><p class="mt-1 text-sm text-forest">Add your responsibilities</p></div>
+                <div><p class="text-xs font-semibold uppercase tracking-wider text-leaf">Project result</p><p class="mt-1 text-sm text-forest">Add a result or key takeaway</p></div>
+              </div>
+            </div>
+          </article>
+          <article class="reveal overflow-hidden rounded-3xl border border-forest/10 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl" data-category="operations">
+            <div class="flex min-h-48 items-end bg-gradient-to-br from-[#274d3a] via-[#64835b] to-[#c6cfaa] p-7 sm:p-9">
+              <div>
+                <span class="rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-white">Operations</span>
+                <h3 class="display-font mt-4 text-3xl text-white sm:text-4xl">Property Management</h3>
+              </div>
+            </div>
+            <div class="p-6 sm:p-8">
+              <p class="text-sm leading-7 text-slate-600">Add a short overview of a property management project here — such as guest or tenant coordination, listing support, and the outcome.</p>
+              <div class="mt-6 grid gap-3 border-t border-forest/10 pt-5 sm:grid-cols-2">
+                <div><p class="text-xs font-semibold uppercase tracking-wider text-leaf">My contribution</p><p class="mt-1 text-sm text-forest">Add your responsibilities</p></div>
+                <div><p class="text-xs font-semibold uppercase tracking-wider text-leaf">Project result</p><p class="mt-1 text-sm text-forest">Add a result or key takeaway</p></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="overflow-hidden bg-forest text-white">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+        <div class="relative">
+          <div class="absolute -left-8 -top-8 h-28 w-28 rounded-full border border-white/15" aria-hidden="true"></div>
+          <div class="relative rounded-[2rem] bg-[#24543a] p-8 sm:p-10">
+            <div class="display-font text-7xl leading-none text-[#b8d1b3]">“</div>
+            <p class="display-font -mt-2 text-3xl leading-snug text-white sm:text-4xl">Good support isn’t just getting things done. It’s making work feel lighter.</p>
+            <div class="mt-8 flex items-center gap-3">
+              <span class="h-px w-9 bg-[#a5c9a7]"></span>
+              <span class="text-sm font-semibold tracking-wide text-[#d2e3d1]">The way I like to work</span>
+            </div>
+          </div>
+          <div class="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-[#527b56]/40" aria-hidden="true"></div>
+        </div>
+        <div id="approach">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#b8d1b3]">A little about me</p>
+          <h2 class="display-font mt-4 text-4xl leading-tight sm:text-5xl">Your dependable Virtual Assistant.</h2>
+          <p class="mt-6 text-base leading-8 text-white/75">I’m Zin, a Virtual Assistant who helps busy business owners stay organized and focused. From administrative support and project coordination to digital marketing, content, and customer experience, I bring thoughtful organization and creativity to the work behind the scenes.</p>
+          <p class="mt-4 text-base leading-8 text-white/75">I can help keep day-to-day tasks moving, organize workflows, coordinate projects, and support clear communication with your customers and team. My goal is to make your workload feel lighter so you can focus on growing your business.</p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <div class="flex gap-3"><span class="mt-0.5 text-[#b8d1b3]">✓</span><span class="text-sm text-white/85">Careful with the details</span></div>
+            <div class="flex gap-3"><span class="mt-0.5 text-[#b8d1b3]">✓</span><span class="text-sm text-white/85">Easy to work with</span></div>
+            <div class="flex gap-3"><span class="mt-0.5 text-[#b8d1b3]">✓</span><span class="text-sm text-white/85">Respectful of your time</span></div>
+            <div class="flex gap-3"><span class="mt-0.5 text-[#b8d1b3]">✓</span><span class="text-sm text-white/85">Happy to learn your tools</span></div>
+          </div>
+          <a href="#contact" class="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-forest transition hover:bg-sage">Let’s talk about your goals <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+      <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-leaf">Simple from the start</p>
+          <h2 class="display-font mt-4 text-4xl leading-tight text-forest sm:text-5xl">A smooth way to get started.</h2>
+          <p class="mt-5 max-w-md leading-7 text-slate-600">We’ll keep it straightforward: first understand what’s taking up your time, then find the right way to help.</p>
+        </div>
+        <div class="grid gap-7 sm:grid-cols-3">
+          <div class="border-t border-forest/15 pt-5">
+            <span class="text-sm font-semibold tracking-wide text-leaf">01 / SAY HELLO</span>
+            <h3 class="mt-3 font-semibold text-forest">Tell me what’s on your plate</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">Share what you need help with and what a good working relationship looks like to you.</p>
+          </div>
+          <div class="border-t border-forest/15 pt-5">
+            <span class="text-sm font-semibold tracking-wide text-leaf">02 / MAKE A PLAN</span>
+            <h3 class="mt-3 font-semibold text-forest">Find the right fit</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">We’ll agree on the priorities, communication, and a practical way to work together.</p>
+          </div>
+          <div class="border-t border-forest/15 pt-5">
+            <span class="text-sm font-semibold tracking-wide text-leaf">03 / GET SOME SPACE</span>
+            <h3 class="mt-3 font-semibold text-forest">Get back to your focus</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">I’ll take care of the agreed tasks and keep you in the loop as we go.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+      <div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-leaf">More about my experience</p>
+          <h2 class="display-font mt-4 text-4xl leading-tight text-forest sm:text-5xl">Resume &amp; links.</h2>
+          <p class="mt-5 max-w-md leading-7 text-slate-600">Explore my background, experience, and professional profile to learn more about the work I do.</p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-3">
+          <a href="resume.pdf" class="rounded-2xl border border-forest/10 bg-white p-5 transition hover:-translate-y-1 hover:border-leaf/30 hover:shadow-lg">
+            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-sage text-lg text-leaf" aria-hidden="true">↓</span>
+            <span class="mt-4 block font-semibold text-forest">View my resume</span>
+            <span class="mt-1 block text-sm text-slate-500">Replace resume.pdf with your file</span>
+          </a>
+          <a href="https://www.indeed.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-forest/10 bg-white p-5 transition hover:-translate-y-1 hover:border-leaf/30 hover:shadow-lg">
+            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-sage text-sm font-bold text-leaf" aria-hidden="true">in</span>
+            <span class="mt-4 block font-semibold text-forest">Indeed profile</span>
+            <span class="mt-1 block text-sm text-slate-500">Replace with your profile link</span>
+          </a>
+          <a href="mailto:your-email@example.com" class="rounded-2xl border border-forest/10 bg-white p-5 transition hover:-translate-y-1 hover:border-leaf/30 hover:shadow-lg">
+            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-sage text-lg text-leaf" aria-hidden="true">@</span>
+            <span class="mt-4 block font-semibold text-forest">Email me</span>
+            <span class="mt-1 block break-all text-sm text-slate-500">your-email@example.com</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-sage/70">
+      <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+        <div class="grid overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-forest/10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div class="relative overflow-hidden bg-forest px-7 py-10 text-white sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+            <div class="absolute -right-20 -top-20 h-64 w-64 rounded-full border border-white/10" aria-hidden="true"></div>
+            <div class="absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-white/[0.04]" aria-hidden="true"></div>
+            <div class="relative">
+              <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#b8d1b3]">Get in touch</p>
+              <h2 class="display-font mt-4 text-4xl leading-tight sm:text-5xl">Let’s Build Something Great</h2>
+              <p class="mt-5 max-w-lg leading-7 text-white/75">Whether you're launching a new product, scaling an existing platform, or need custom development services—we're here to partner with you. Our team is ready to turn your ideas into reality.</p>
+
+              <div class="mt-10 space-y-6">
+                <a href="mailto:delosreyesjulieanne199@gmail.com" class="group flex items-start gap-4">
+                  <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#b8d1b3] transition group-hover:bg-white/15" aria-hidden="true">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="m3 7 9 6 9-6"/></svg>
+                  </span>
+                  <span class="min-w-0 pt-0.5">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-white/55">Email</span>
+                    <span class="mt-1 block break-all text-sm font-medium text-white transition group-hover:text-[#b8d1b3]">delosreyesjulieanne199@gmail.com</span>
+                  </span>
+                </a>
+                <a href="tel:+639384251369" class="group flex items-start gap-4">
+                  <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#b8d1b3] transition group-hover:bg-white/15" aria-hidden="true">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M5 4h3l2 5-2 1.5a15 15 0 0 0 5.5 5.5L15 14l5 2v3a2 2 0 0 1-2 2C10 21 3 14 3 6a2 2 0 0 1 2-2Z"/></svg>
+                  </span>
+                  <span class="pt-0.5">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-white/55">Phone</span>
+                    <span class="mt-1 block text-sm font-medium text-white transition group-hover:text-[#b8d1b3]">0938 425 1369</span>
+                  </span>
+                </a>
+                <div class="flex items-start gap-4">
+                  <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#b8d1b3]" aria-hidden="true">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  </span>
+                  <span class="pt-0.5">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-white/55">Location</span>
+                    <span class="mt-1 block text-sm font-medium text-white">Calauan, Laguna, Philippines</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-7 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-leaf">Send a message</p>
+            <h3 class="display-font mt-3 text-3xl leading-tight text-forest sm:text-4xl">Tell us about your project.</h3>
+            <p class="mt-3 leading-7 text-slate-600">Share a few details and we’ll be in touch.</p>
+            <form id="contact-form" action="https://formspree.io/f/mpppednr" method="POST" class="mt-8 space-y-5">
+              <div>
+                <label for="contact-name" class="mb-1.5 block text-sm font-semibold text-forest">Name</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required class="w-full rounded-xl border border-forest/15 bg-paper px-4 py-3 text-forest placeholder:text-slate-400 focus:border-leaf focus:outline-none focus:ring-2 focus:ring-leaf/20">
+              </div>
+              <div>
+                <label for="contact-email" class="mb-1.5 block text-sm font-semibold text-forest">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required class="w-full rounded-xl border border-forest/15 bg-paper px-4 py-3 text-forest placeholder:text-slate-400 focus:border-leaf focus:outline-none focus:ring-2 focus:ring-leaf/20">
+              </div>
+              <div>
+                <label for="contact-message" class="mb-1.5 block text-sm font-semibold text-forest">Message</label>
+                <textarea id="contact-message" name="message" rows="5" required class="w-full resize-y rounded-xl border border-forest/15 bg-paper px-4 py-3 text-forest placeholder:text-slate-400 focus:border-leaf focus:outline-none focus:ring-2 focus:ring-leaf/20"></textarea>
+              </div>
+              <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-forest px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-forest/15 transition hover:-translate-y-0.5 hover:bg-leaf sm:w-auto">
+                Send message <span aria-hidden="true">↗</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-forest text-xl text-white shadow-lg shadow-forest/20 transition hover:-translate-y-1 hover:bg-leaf focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2" type="button" aria-label="Back to top" title="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <footer class="bg-forest text-white">
+    <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_.8fr_1fr]">
+        <div>
+          <a href="#home" class="inline-flex items-center gap-3" aria-label="Zin Lamma, back to top">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm font-bold tracking-wide">ZL</span>
+            <span class="text-lg font-semibold">Zin Lamma</span>
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-7 text-white/70">Creative thinking, organized execution, and thoughtful collaboration — from the first idea to the final details.</p>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-[#b8d1b3]">Explore</h2>
+          <ul class="mt-4 space-y-3 text-sm text-white/75">
+            <li><a class="transition hover:text-white" href="#services">Areas of work</a></li>
+            <li><a class="transition hover:text-white" href="#tools">Tools I use</a></li>
+            <li><a class="transition hover:text-white" href="#projects">Selected projects</a></li>
+            <li><a class="transition hover:text-white" href="#about">About me</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-[#b8d1b3]">Get in touch</h2>
+          <p class="mt-4 text-sm leading-6 text-white/70">Have a project or opportunity in mind? I’d be glad to hear from you.</p>
+          <a href="mailto:your-email@example.com" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-[#b8d1b3]">
+            your-email@example.com <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col gap-3 border-t border-white/15 pt-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <p>&copy; <span id="year"></span> Zin Lamma. All rights reserved.</p>
+        <a href="#home" class="inline-flex items-center gap-2 transition hover:text-white">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    const contactForm = document.getElementById("contact-form");
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalButtonContent = submitButton.innerHTML;
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: new FormData(contactForm),
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) {
+          throw new Error("We couldn’t send your message. Please try again in a moment.");
+        }
+
+        contactForm.reset();
+        if (window.Swal) {
+          await Swal.fire({
+            icon: "success",
+            title: "Message sent!",
+            text: "Thank you for reaching out. I’ll get back to you soon.",
+            confirmButtonColor: "#163d2b"
+          });
+        } else {
+          window.alert("Message sent! Thank you for reaching out.");
+        }
+      } catch (error) {
+        const message = error instanceof Error
+          ? error.message
+          : "Something went wrong while sending your message. Please try again.";
+        if (window.Swal) {
+          await Swal.fire({
+            icon: "error",
+            title: "Message not sent",
+            text: message,
+            confirmButtonColor: "#163d2b"
+          });
+        } else {
+          window.alert(message);
+        }
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonContent;
+      }
+    });
+
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+    const themeLabel = document.getElementById("theme-label");
+    const scrollProgress = document.getElementById("scroll-progress");
+    const backToTop = document.getElementById("back-to-top");
+    const mainNavLinks = [...document.querySelectorAll(".main-nav-link")];
+    const mainSections = [...document.querySelectorAll("main section[id]")];
+    const header = document.querySelector("header");
+    const projectCards = [...document.querySelectorAll("#project-grid [data-category]")];
+    const projectFilters = [...document.querySelectorAll(".project-filter")];
+
+    function updateThemeToggle() {
+      const isDark = document.documentElement.classList.contains("dark");
+      const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+      document.getElementById("theme-color").content = isDark ? "#111a14" : "#f7faf6";
+      themeToggle.setAttribute("aria-label", label);
+      themeToggle.setAttribute("title", label);
+      themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+      themeIcon.innerHTML = isDark
+        ? '<circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>'
+        : '<path stroke-linecap="round" stroke-linejoin="round" d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.5 8.5 0 1 0 12 12Z"/>';
+    }
+
+    updateThemeToggle();
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("zinlamma-theme", isDark ? "dark" : "light");
+      updateThemeToggle();
+    });
+
+    projectFilters.forEach((filter) => {
+      filter.addEventListener("click", () => {
+        const category = filter.dataset.filter;
+        projectFilters.forEach((button) => button.setAttribute("aria-pressed", String(button === filter)));
+        projectCards.forEach((card) => {
+          card.hidden = category !== "all" && card.dataset.category !== category;
+        });
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+    revealElements.forEach((element, index) => {
+      element.style.setProperty("--delay", `${index * 110}ms`);
+    });
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealElements.forEach((element) => revealObserver.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("is-visible"));
+    }
+
+    let scrollUpdateScheduled = false;
+    function updateActiveNav() {
+      const activationLine = window.scrollY + header.offsetHeight + Math.min(window.innerHeight * 0.25, 180);
+      let currentSection = null;
+
+      mainSections.forEach((section) => {
+        if (section.getBoundingClientRect().top + window.scrollY <= activationLine) {
+          currentSection = section;
+        }
+      });
+
+      mainNavLinks.forEach((link) => {
+        if (currentSection && link.hash === `#${currentSection.id}`) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function updateScrollUI() {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollableHeight > 0 ? Math.min(window.scrollY / scrollableHeight, 1) : 0;
+      scrollProgress.style.transform = `scaleX(${progress})`;
+      scrollProgress.setAttribute("aria-valuenow", String(Math.round(progress * 100)));
+      backToTop.classList.toggle("hidden", window.scrollY < 500);
+      backToTop.classList.toggle("flex", window.scrollY >= 500);
+      updateActiveNav();
+      scrollUpdateScheduled = false;
+    }
+
+    window.addEventListener("scroll", () => {
+      if (!scrollUpdateScheduled) {
+        window.requestAnimationFrame(updateScrollUI);
+        scrollUpdateScheduled = true;
+      }
+    }, { passive: true });
+    updateScrollUI();
+    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
